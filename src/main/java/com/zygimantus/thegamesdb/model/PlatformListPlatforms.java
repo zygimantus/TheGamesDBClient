@@ -7,14 +7,14 @@ import javax.xml.bind.annotation.XmlRootElement;
 @XmlRootElement(name = "Platforms")
 public class PlatformListPlatforms {
 
-    private List<PlatformListPlatform> platformListPlatforms;
+    private List<PlatformListPlatform> listOfPlatforms;
 
-    public List<PlatformListPlatform> getPlatformListPlatforms() {
-        return platformListPlatforms;
+    public List<PlatformListPlatform> getListOfPlatforms() {
+        return listOfPlatforms;
     }
 
     @XmlElement(name = "Platform")
-    public void setPlatformListPlatforms(List<PlatformListPlatform> platformListPlatforms) {
-        this.platformListPlatforms = platformListPlatforms;
+    public void setListOfPlatforms(List<PlatformListPlatform> listOfPlatforms) {
+        this.listOfPlatforms = listOfPlatforms;
     }
 }

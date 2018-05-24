@@ -72,8 +72,8 @@ public class GameGame {
         return esrb;
     }
 
-    public void setESRB(String ESRB) {
-        this.esrb = ESRB;
+    public void setESRB(String esrb) {
+        this.esrb = esrb;
     }
 
     @XmlElement(name = "Genres")
