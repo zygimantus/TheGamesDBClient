@@ -12,8 +12,8 @@ public class GameGame {
     private String platform;
     private String rawReleaseDate;
     private String overview;
-    private String ESRB;
-    private List<GameGenre> Genres;
+    private String esrb;
+    private List<GameGenre> genres;
     private String players;
     private String coop;
     private String youtube;
@@ -69,20 +69,20 @@ public class GameGame {
 
     @XmlElement(name = "ESRB")
     public String getESRB() {
-        return ESRB;
+        return esrb;
     }
 
     public void setESRB(String ESRB) {
-        this.ESRB = ESRB;
+        this.esrb = ESRB;
     }
 
     @XmlElement(name = "Genres")
     public List<GameGenre> getGenres() {
-        return Genres;
+        return genres;
     }
 
     public void setGenres(List<GameGenre> genres) {
-        Genres = genres;
+        this.genres = genres;
     }
 
     @XmlElement(name = "Players")
