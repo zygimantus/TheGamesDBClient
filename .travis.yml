@@ -2,3 +2,22 @@ language: java
 
 after_success:
   - mvn clean test cobertura:cobertura jacoco:report coveralls:report
+
+before_install:
+  - echo -n | openssl s_client -connect https://scan.coverity.com:443 | sed -ne '/-BEGIN CERTIFICATE-/,/-END CERTIFICATE-/p' | sudo tee -a /etc/ssl/certs/ca-
+
+env:
+  global:
+   # The next declaration is the encrypted COVERITY_SCAN_TOKEN, created
+   #   via the "travis encrypt" command using the project repo's public key
+   - secure: "ZpETxU9ThIVO8xjkflctPdj/WMowHbemn2M/yCR2gb3ytTvBTitCQWYyasX5MlJu0q5cZ3ummIifk6xHaej+tcZ+bpOcvyJEoj96fcfErCKQDVAmFahbZeIPORLTr2ajPazj9HGRW4Llp1Sa6g7+rqgd1c4aG/CXLT7yrGtdg/VU1t/Uzr/Gb86U23mOOO8aNBMuBoJ3jfj847ZTFxFj1iTio0GZT/mL5UfEVrQ36rlGXjngZgBvPFR9uEEJR2Uf2ZliAkfbnF9Y/9IOXr/YN+g/E5df9cwDS6qrFD8WfZMB9LAJ2mWMqUQA46VMIt0LeC4gh8UvMEox3C7NULf7ur+O0RYXMNAB1M4wrl9XolscXo7mSFg4B7z6Oz7agniuxXl/+3hIcL6RefYRm0Vep8W5Wvigzco7/nByX/JlyZ0D456MpjQUzEKWXdZraC8zgOcKEC3UQwF+MoSIYciXtrtonNbjzpWjPP/kgIt7Ns2d2ih+lbNbdaQVvCaLwcCsui4Unx/+l8q40SV7W8blMpogXhRXbcUw6eg+aAM/ZfEznwdK/UfgJxOYFYhM5JNAW2xgvTC3+dXu2Tapg2BUSQH9LxnZLaxWbwXYlgut96njr1a2y61CzfkEI9kVMjgMQ+aFpUFPQtVcJcTNS7a8ofrPH1+hhhhXXXECXPhndwA="
+
+addons:
+  coverity_scan:
+    project:
+      name: "zygimantus/TheGamesDBClient"
+      description: "A Java client for TheGamesDB API"
+    notification_email: zygimantus@gmail.com
+    build_command_prepend: mvn clean
+    build_command: mvn install
+    branch_pattern: coverity_scan
