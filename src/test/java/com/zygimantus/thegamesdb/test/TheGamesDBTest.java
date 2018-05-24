@@ -1,3 +1,5 @@
+package com.zygimantus.thegamesdb.test;
+
 /*
  * The MIT License
  *

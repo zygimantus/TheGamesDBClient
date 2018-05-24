@@ -21,9 +21,7 @@ public class GameImageFanart extends GameImage {
 
     @Override
     public void setUrl(String url) {
-        if (!url.equals("\n")) {
-            this.url = url;
-        }
+        this.url = url;
     }
 
     @Override
