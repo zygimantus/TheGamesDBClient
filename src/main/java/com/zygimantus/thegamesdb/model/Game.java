@@ -14,9 +14,9 @@ public abstract class Game {
         return id;
     }
 
-    public void setId(int id) {
-        this.id = id;
-    }
+     public void setId(int id) {
+     this.id = id;
+     }
 
     @XmlElement(name = "GameTitle")
     public String getGameTitle() {
@@ -46,7 +46,7 @@ public abstract class Game {
     }
 
     @Override
-    public int hashCode() {
+    public final int hashCode() {
         final int prime = 31;
         int result = 1;
         result = prime * result + id;
@@ -54,20 +54,16 @@ public abstract class Game {
     }
 
     @Override
-    public boolean equals(Object obj) {
-        if (this == obj) {
+    public final boolean equals(Object obj) {
+        if (this == obj)
             return true;
-        }
-        if (obj == null) {
+        if (obj == null)
             return false;
-        }
-        if (getClass() != obj.getClass()) {
+        if (!(obj instanceof Game))
             return false;
-        }
         Game other = (Game) obj;
-        if (id != other.id) {
+        if (id != other.id)
             return false;
-        }
         return true;
     }
 

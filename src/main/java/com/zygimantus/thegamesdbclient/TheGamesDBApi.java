@@ -57,7 +57,4 @@ public class TheGamesDBApi {
         return apiInstance.sportDeer;
     }
 
-    public void setApi(TheGamesDB starWarsApi) {
-        apiInstance.sportDeer = starWarsApi;
-    }
 }

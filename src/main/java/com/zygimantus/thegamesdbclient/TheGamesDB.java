@@ -66,6 +66,6 @@ public interface TheGamesDB {
     public Call<GamesListData> platformGames(@Query("platform") String platform);
 
     @GET("Updates.php")
-    public Call<UpdateItems> updates(@Query("platform") int time);
+    public Call<UpdateItems> updates(@Query("time") int time);
 
 }

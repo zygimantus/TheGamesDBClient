@@ -23,16 +23,19 @@ package com.zygimantus.thegamesdb.test;
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
  * THE SOFTWARE.
  */
-
+import com.zygimantus.thegamesdb.model.Game;
 import com.zygimantus.thegamesdb.model.GameArtData;
 import com.zygimantus.thegamesdb.model.GameData;
 import com.zygimantus.thegamesdb.model.GamesListData;
 import com.zygimantus.thegamesdb.model.PlatformData;
 import com.zygimantus.thegamesdb.model.PlatformListData;
+import com.zygimantus.thegamesdb.model.PlatformPlatform;
 import com.zygimantus.thegamesdb.model.UpdateItems;
 import com.zygimantus.thegamesdbclient.TheGamesDB;
 import com.zygimantus.thegamesdbclient.TheGamesDBApi;
 import java.io.IOException;
+import nl.jqno.equalsverifier.EqualsVerifier;
+import nl.jqno.equalsverifier.Warning;
 import org.junit.Assert;
 import org.junit.Test;
 import retrofit2.Response;
@@ -42,6 +45,14 @@ import retrofit2.Response;
  * @author Zygimantus
  */
 public class TheGamesDBTest {
+
+    @Test
+    public void equalsContractsTest() {
+        EqualsVerifier.forClass(Game.class).suppress(Warning.ALL_FIELDS_SHOULD_BE_USED)
+                .suppress(Warning.NONFINAL_FIELDS).verify();
+        EqualsVerifier.forClass(PlatformPlatform.class).suppress(Warning.ALL_FIELDS_SHOULD_BE_USED)
+                .suppress(Warning.NONFINAL_FIELDS).verify();
+    }
 
     @Test
     public void getGamesListTest() throws IOException {
@@ -126,9 +137,11 @@ public class TheGamesDBTest {
         TheGamesDBApi.init();
         TheGamesDB api = TheGamesDBApi.getApi();
 
-        Response<UpdateItems> response = api.updates(2000).execute();
+        Response<UpdateItems> response = api.updates(1000000).execute();
 
         Assert.assertTrue(response.isSuccessful());
+
+        Assert.assertTrue(response.body().getTime() < Instant.now().getEpochSecond());
     }
 
 }
