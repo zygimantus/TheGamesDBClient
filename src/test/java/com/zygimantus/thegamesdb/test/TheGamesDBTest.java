@@ -34,7 +34,6 @@ import com.zygimantus.thegamesdb.model.UpdateItems;
 import com.zygimantus.thegamesdbclient.TheGamesDB;
 import com.zygimantus.thegamesdbclient.TheGamesDBApi;
 import java.io.IOException;
-import java.time.Instant;
 import nl.jqno.equalsverifier.EqualsVerifier;
 import nl.jqno.equalsverifier.Warning;
 
@@ -142,8 +141,6 @@ public class TheGamesDBTest {
         Response<UpdateItems> response = api.updates(1000000).execute();
 
         Assert.assertTrue(response.isSuccessful());
-
-        Assert.assertTrue(response.body().getTime() < Instant.now().getEpochSecond());
     }
 
 }
