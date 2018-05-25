@@ -37,6 +37,7 @@ import java.io.IOException;
 import java.time.Instant;
 import nl.jqno.equalsverifier.EqualsVerifier;
 import nl.jqno.equalsverifier.Warning;
+
 import org.junit.Assert;
 import org.junit.Test;
 import retrofit2.Response;

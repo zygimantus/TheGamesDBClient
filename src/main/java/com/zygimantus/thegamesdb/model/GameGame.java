@@ -28,11 +28,11 @@ public class GameGame extends Game {
     }
 
     @XmlElement(name = "ESRB")
-    public String getESRB() {
+    public String getEsrb() {
         return esrb;
     }
 
-    public void setESRB(String esrb) {
+    public void setEsrb(String esrb) {
         this.esrb = esrb;
     }
 
