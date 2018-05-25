@@ -34,6 +34,7 @@ import com.zygimantus.thegamesdb.model.UpdateItems;
 import com.zygimantus.thegamesdbclient.TheGamesDB;
 import com.zygimantus.thegamesdbclient.TheGamesDBApi;
 import java.io.IOException;
+import java.time.Instant;
 import nl.jqno.equalsverifier.EqualsVerifier;
 import nl.jqno.equalsverifier.Warning;
 import org.junit.Assert;
